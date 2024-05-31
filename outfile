@@ -1,0 +1,60 @@
+EXECUTE
+FIND_PATHSenvp[i]: GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+envp[i]: LESSOPEN=| /usr/bin/lesspipe %s
+envp[i]: HISTFILESIZE=
+envp[i]: USER=paola
+envp[i]: LC_TIME=pt_BR.UTF-8
+envp[i]: COMP_WORDBREAKS= 	
+"'><=;|&(
+envp[i]: SSH_AGENT_PID=3568
+envp[i]: XDG_SESSION_TYPE=x11
+envp[i]: GIT_ASKPASS=/usr/share/code/resources/app/extensions/git/dist/askpass.sh
+envp[i]: SHLVL=1
+envp[i]: HISTIGNORE=exit:ls:bg:fg:history:clear
+envp[i]: LD_LIBRARY_PATH=/usr/lib/debug
+envp[i]: LESS=-R
+envp[i]: HOME=/home/paola
+envp[i]: CHROME_DESKTOP=code-url-handler.desktop
+envp[i]: TERMINFO=/usr/share/terminfo
+envp[i]: CONDA_SHLVL=0
+envp[i]: OLDPWD=/home/paola/Documents/42_Lisbon/projects/pipex
+envp[i]: TERM_PROGRAM_VERSION=1.89.1
+envp[i]: DESKTOP_SESSION=ubuntu
+envp[i]: LSCOLORS=Gxfxcxdxdxegedabagacad
+envp[i]: GIO_LAUNCHED_DESKTOP_FILE=/usr/share/applications/code.desktop
+envp[i]: GNOME_SHELL_SESSION_MODE=ubuntu
+envp[i]: GTK_MODULES=gail:atk-bridge
+envp[i]: PAGER=less
+envp[i]: VSCODE_GIT_ASKPASS_MAIN=/usr/share/code/resources/app/extensions/git/dist/askpass-main.js
+envp[i]: LC_MONETARY=pt_BR.UTF-8
+envp[i]: VSCODE_GIT_ASKPASS_NODE=/usr/share/code/code
+envp[i]: MANAGERPID=3442
+envp[i]: LC_CTYPE=pt_BR.UTF-8
+envp[i]: DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1001/bus
+envp[i]: COLORTERM=truecolor
+envp[i]: _CE_M=
+envp[i]: GIO_LAUNCHED_DESKTOP_FILE_PID=9730
+envp[i]: MANDATORY_PATH=/usr/share/gconf/ubuntu.mandatory.path
+envp[i]: IM_CONFIG_PHASE=1
+envp[i]: LOGNAME=paola
+envp[i]: OSH=/home/paola/.oh-my-bash
+envp[i]: JOURNAL_STREAM=8:141672
+envp[i]: _=/usr/bin/valgrind
+envp[i]: XDG_SESSION_CLASS=user
+envp[i]: DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path
+envp[i]: USERNAME=paola
+envp[i]: TERM=xterm-256color
+envp[i]: GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+envp[i]: _CE_CONDA=
+envp[i]: WINDOWPATH=2
+envp[i]: PATH=/usr/bin/R:/home/paola/anaconda3/condabin:/home/paola/.cache/activestate/bin:/home/paola/.local/ActiveState/StateTool/release/bin:/home/paola/.local/bin:/home/paola/bin:/usr/lib/jvm/java-oracle//bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+include
+infile.txt
+libft
+Makefile
+obj
+outfile
+outfile.txt
+pipex
+prog
+src

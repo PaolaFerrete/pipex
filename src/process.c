@@ -6,21 +6,38 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:35:59 by paola             #+#    #+#             */
-/*   Updated: 2024/05/31 15:14:25 by paola            ###   ########.fr       */
+/*   Updated: 2024/05/31 17:26:24 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
 #include "../libft/include/libft.h"
 
-char	*find_path(char *cmd, char **envp)
+/*
+char	*find_path(char *paths, char *cmd)
+{
+	char	*part_path;
+	char	*path;
+
+	printf("FIND_PATH\n");
+	if (paths == NULL || cmd == NULL)
+		return (0);
+	part_path = ft_strjoin(paths, "/");
+	printf("join /: %s\n", part_path);
+	path = ft_strjoin(part_path, cmd);
+	return (path);
+}
+*/
+
+
+char	*find_paths(char *cmd, char **envp)
 {
 	char	**paths;
 	char	*path;
-	int		i;
 	char	*part_path;
+	int		i;
 
-	write(1, "FIND_PATH\n", 10);
+	write(1, "FIND_PATHS\n", 10);
 	i = 0;
 	while (ft_strnstr(envp[i], "PATH", 4) == 0)
 	{
@@ -33,15 +50,10 @@ char	*find_path(char *cmd, char **envp)
 	while (paths[i])
 	{
 		part_path = ft_strjoin(paths[i], "/");
-		printf("join /: %s\n", part_path);
 		path = ft_strjoin(part_path, cmd);
-		printf("path: %s\n", path);
 		free(part_path);
 		if (access(path, F_OK) == 0)
-		{
-			printf("diretório: %s\n", path);
 			return (path);
-		}
 		free(path);
 		i++;
 	}
@@ -53,20 +65,20 @@ char	*find_path(char *cmd, char **envp)
 void	ft_execute(char *argv, char **envp)
 {
 	char	**cmd;
-	int		i;
 	char	*path;
 
 	printf("EXECUTE\n");
-	i = -1;
 	cmd = ft_split(argv, ' ');
-	path = find_path(cmd[0], envp);
+	path = find_paths(cmd[0], envp);
 	if (!path)
 	{
 		free_matrix(cmd);
 		msg_error(-1);
 	}
 	if (execve(path, cmd, envp) == -1)
+	{
 		msg_error(-1);
+	}
 }
 
 void	parent_process(char **argv, char **envp, int *fd)
