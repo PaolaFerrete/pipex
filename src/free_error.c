@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:07:10 by paola             #+#    #+#             */
-/*   Updated: 2024/05/31 15:11:24 by paola            ###   ########.fr       */
+/*   Updated: 2024/05/31 18:14:46 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	msg_error(int err)
 	printf("MSG_ERROR\n");
 	if (err == 0)
 	{
-		write(1, "error arguments:\n", 16);
-		write(2, "./pipex <file1> <cmd1> <cmd2> <file2>\n", 38);
+		ft_putstr_fd("Error: Bad arguments\n", 1);
+		ft_putstr_fd("./pipex <file1> <cmd1> <cmd2> <file2>\n", 2);
 	}
 	else if (err == -1)
 	{

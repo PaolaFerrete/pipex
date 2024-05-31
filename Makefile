@@ -6,7 +6,7 @@
 #    By: paola <paola@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 13:21:48 by paola             #+#    #+#              #
-#    Updated: 2024/05/31 13:25:45 by paola            ###   ########.fr        #
+#    Updated: 2024/05/31 18:29:01 by paola            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ INCLUDE = ./include
 
 # files sources and objects
 SRC_FILES = free_error.c \
-			process.c
+			pipex.c \
+			utils.c
 
 OBJ_FILES = $(addprefix $(OBJ_DIR)/,$(SRC_FILES:.c=.o))
 
