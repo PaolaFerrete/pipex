@@ -6,7 +6,7 @@
 #    By: paola <paola@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/31 13:21:48 by paola             #+#    #+#              #
-#    Updated: 2024/05/31 18:29:01 by paola            ###   ########.fr        #
+#    Updated: 2024/06/03 14:46:36 by paola            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ MAIN_DIR = ./prog
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES) $(LIBFT_LIB)/$(LIBFT)
+	@echo "\033[33m----Compiling prog----"
 	$(CC) $(CFLAGS) $(MAIN_DIR)/*.c $(OBJ_FILES) -I $(INCLUDE) -o $@ -L $(LIBFT_LIB) -lft
 
 $(LIBFT_LIB)/$(LIBFT): $(LIBFT_DIR)
@@ -46,6 +47,7 @@ $(LIBFT_LIB)/$(LIBFT): $(LIBFT_DIR)
 	@make -C $(LIBFT_DIR)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@echo "\033[33m----Compiling src----"
 	@mkdir -p $(OBJ_DIR)
 	$(CC) $(CFLAGS) -I $(INCLUDE) -c $< -o $@
 

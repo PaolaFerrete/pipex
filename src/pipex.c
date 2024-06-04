@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:22:11 by paola             #+#    #+#             */
-/*   Updated: 2024/05/31 18:30:45 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/03 16:41:13 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_execute(char *argv, char **envp)
 	char	**cmd;
 	char	*path;
 
-	printf("EXECUTE\n");
 	cmd = ft_split(argv, ' ');
 	path = find_paths(cmd[0], envp);
 	if (!path)
@@ -26,16 +25,14 @@ void	ft_execute(char *argv, char **envp)
 		msg_error(-1);
 	}
 	if (execve(path, cmd, envp) == -1)
-	{
 		msg_error(-1);
-	}
 }
 
 void	parent_process(char **argv, char **envp, int *fd)
 {
 	int		fileout;
 
-	fileout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 0777);
+	fileout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 777);
 	if (fileout == -1)
 		msg_error(-1);
 	dup2(fd[0], STDIN_FILENO);
@@ -48,9 +45,7 @@ void	child_process(char **argv, char **envp, int *fd)
 {
 	int		filein;
 
-	printf("CHILD_PROCESS\n");
-
-	filein = open(argv[1], O_RDONLY, 0777);
+	filein = open(argv[1], O_RDONLY, 777);
 	if (filein == -1)
 		msg_error(-1);
 	dup2(fd[1], STDOUT_FILENO);
@@ -65,13 +60,9 @@ void	pipex(char **argv, char **envp)
 	int		fd[2];
 	pid_t	pid;
 
-	printf("PIPEX\n");
 	if (pipe(fd) == -1)
 		msg_error(-1);
-	printf("descriptor fd0: %d\n", fd[0]);
-	printf("descriptor fd1: %d\n", fd[1]);
 	pid = fork();
-	printf("pid: %d\n", pid);
 	if (pid == -1)
 		msg_error(-1);
 	if (pid == 0)

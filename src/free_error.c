@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:07:10 by paola             #+#    #+#             */
-/*   Updated: 2024/05/31 18:14:46 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/03 16:13:19 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	msg_error(int err)
 {
-	printf("MSG_ERROR\n");
 	if (err == 0)
 	{
 		ft_putstr_fd("Error: Bad arguments\n", 1);
@@ -22,7 +21,7 @@ void	msg_error(int err)
 	}
 	else if (err == -1)
 	{
-		perror("Error");
+		perror("ERROR");
 		exit(EXIT_FAILURE);
 	}
 }
@@ -32,14 +31,10 @@ void	free_matrix(char **argv)
 {
 	int	i;
 
-	printf("FREE_MATRIX\n");
 	i = 0;
 	if (NULL == argv || NULL == *argv)
 		return ;
 	while (argv[i])
-	{
-		printf("free: %s\n", argv[i]);
 		free(argv[i++]);
-	}
 	free(argv);
 }
