@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:22:11 by paola             #+#    #+#             */
-/*   Updated: 2024/06/05 09:24:01 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/05 10:35:00 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ void	parent_process(char **argv, char **envp, int *fd)
 		msg_error(-1);
 	dup2(fileout, STDOUT_FILENO);
 	dup2(fd[0], STDIN_FILENO);
+	close(fd[0]);
 	close(fd[1]);
+	close(fileout);
 	ft_execute(argv[3], envp);
 }
 
@@ -54,6 +56,8 @@ void	child_process(char **argv, char **envp, int *fd)
 	dup2(filein, STDIN_FILENO);
 	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
+	close(fd[1]);
+	close(filein);
 	ft_execute(argv[2], envp);
 
 }
@@ -69,7 +73,14 @@ void	pipex(char **argv, char **envp)
 	if (pid == -1)
 		msg_error(-1);
 	if (pid == 0)
+	{
+		close(fd[0]);
 		child_process(argv, envp, fd);
-	waitpid(pid, NULL, 0);
-	parent_process(argv, envp, fd);
+	}
+	else
+	{
+		close(fd[1]);
+		waitpid(pid, NULL, 0);
+		parent_process(argv, envp, fd);
+	}
 }
