@@ -27,7 +27,7 @@ void	ft_execute(char *argv, char **envp)
 	if (execve(path, cmd, envp) == -1)
 	{
 		free_matrix(cmd);
-		msg_error(-1);
+		exit(127);
 	}
 }
 
