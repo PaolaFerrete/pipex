@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:31:43 by paola             #+#    #+#             */
-/*   Updated: 2024/05/31 18:29:35 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/05 09:24:26 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	parent_process(char **argv, char **envp, int *fd);
 void	ft_execute(char *argv, char **envp);
 char	*completed_path(char *paths, char *cmd);
 char	*find_paths(char *cmd, char **envp);
+int		open_file(char *file, int in_or_out);
 
 #endif

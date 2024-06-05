@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:35:59 by paola             #+#    #+#             */
-/*   Updated: 2024/06/03 14:52:37 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/05 09:34:55 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,25 @@ char	*find_paths(char *cmd, char **envp)
 	}
 	free_matrix(paths);
 	return (0);
+}
+
+int	open_file(char *file, int in_or_out)
+{
+	int	ret;
+
+	if (in_or_out == 0)
+	{
+		ret = open(file, O_RDONLY, 0777);
+		if (ret == -1)
+			msg_error(-1);
+	}
+	else if (in_or_out == 1)
+	{
+		ret = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (ret == -1)
+			msg_error(-1);
+	}
+	return (ret);
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:22:11 by paola             #+#    #+#             */
-/*   Updated: 2024/06/03 16:41:13 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/05 09:24:01 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,21 @@ void	ft_execute(char *argv, char **envp)
 		msg_error(-1);
 	}
 	if (execve(path, cmd, envp) == -1)
+	{
+		free_matrix(cmd);
 		msg_error(-1);
+	}
 }
 
 void	parent_process(char **argv, char **envp, int *fd)
 {
 	int		fileout;
 
-	fileout = open(argv[4], O_WRONLY | O_CREAT | O_TRUNC, 777);
+	fileout = open_file(argv[4], 1);
 	if (fileout == -1)
 		msg_error(-1);
-	dup2(fd[0], STDIN_FILENO);
 	dup2(fileout, STDOUT_FILENO);
+	dup2(fd[0], STDIN_FILENO);
 	close(fd[1]);
 	ft_execute(argv[3], envp);
 }
@@ -45,11 +48,11 @@ void	child_process(char **argv, char **envp, int *fd)
 {
 	int		filein;
 
-	filein = open(argv[1], O_RDONLY, 777);
+	filein = open_file(argv[1], 0);
 	if (filein == -1)
 		msg_error(-1);
-	dup2(fd[1], STDOUT_FILENO);
 	dup2(filein, STDIN_FILENO);
+	dup2(fd[1], STDOUT_FILENO);
 	close(fd[0]);
 	ft_execute(argv[2], envp);
 
