@@ -6,7 +6,7 @@
 #    By: paola <paola@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/19 11:55:04 by pferrete          #+#    #+#              #
-#    Updated: 2024/02/16 17:47:24 by paola            ###   ########.fr        #
+#    Updated: 2024/06/05 11:00:02 by paola            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ SRC_FILES = ft_atoi.c \
 			ft_lstadd_front.c \
 			ft_lstnew.c \
 			ft_lstsize.c \
-			ft_lstclear.c
+			ft_lstclear.c \
+			ft_strcmp.c
 
 OBJ = ./obj/
 OBJ_FILES = $(addprefix $(OBJ)/,$(SRC_FILES:.c=.o))

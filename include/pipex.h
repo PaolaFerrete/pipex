@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:31:43 by paola             #+#    #+#             */
-/*   Updated: 2024/06/05 09:24:26 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/05 10:52:48 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	pipex(char **argv, char **envp);
 void	child_process(char **argv, char **envp, int *fd);
 void	parent_process(char **argv, char **envp, int *fd);
 void	ft_execute(char *argv, char **envp);
-char	*completed_path(char *paths, char *cmd);
-char	*find_paths(char *cmd, char **envp);
+char	*get_path(char *cmd, char **env);
+char	*my_getenv(char *name, char **env);
 int		open_file(char *file, int in_or_out);
 
 #endif
