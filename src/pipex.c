@@ -75,12 +75,12 @@ void	pipex(char **argv, char **envp)
 	if (pid == 0)
 	{
 		close(fd[0]);
-		child_process(argv, envp, fd);
+	child_process(argv, envp, fd);
 	}
 	else
 	{
-		close(fd[1]);
-		waitpid(pid, NULL, 0);
+		close(fd[1]);	
+		waitpid(pid, NULL, WNOHANG);
 		parent_process(argv, envp, fd);
 	}
 }
