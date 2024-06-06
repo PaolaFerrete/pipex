@@ -15,17 +15,13 @@
 void	msg_error(int err)
 {
 	if (err == 0)
-	{
-		ft_putstr_fd("Error: Bad arguments\n", 1);
-		ft_putstr_fd("./pipex <file1> <cmd1> <cmd2> <file2>\n", 2);
-	}
+		ft_putstr_fd("Usage: ./pipex <file1> <cmd1> <cmd2> <file2>\n", 2);
 	else if (err == -1)
-	{
 		perror("ERROR");
-		exit(EXIT_FAILURE);
-	}
+	else if(err == 127)
+		exit(127);
+	exit(EXIT_FAILURE);
 }
-
 
 void	free_matrix(char **argv)
 {
