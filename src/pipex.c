@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:22:11 by paola             #+#    #+#             */
-/*   Updated: 2024/06/06 13:28:23 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/06 13:29:47 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	pipex(char **argv, char **envp)
 	}
 	else
 	{
-		close(fd[1]);	
+		close(fd[1]);
 		waitpid(pid, NULL, WNOHANG);
 		parent_process(argv, envp, fd);
 	}

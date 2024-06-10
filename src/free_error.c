@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:07:10 by paola             #+#    #+#             */
-/*   Updated: 2024/06/03 16:13:19 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/10 15:46:16 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	msg_error(int err)
 		ft_putstr_fd("Usage: ./pipex <file1> <cmd1> <cmd2> <file2>\n", 2);
 	else if (err == -1)
 		perror("ERROR");
-	else if(err == 127)
+	else if (err == 127)
 		exit(127);
 	exit(EXIT_FAILURE);
 }
