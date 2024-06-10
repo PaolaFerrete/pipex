@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:31:43 by paola             #+#    #+#             */
-/*   Updated: 2024/06/05 10:52:48 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/10 18:00:08 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <sys/wait.h>
 # include <fcntl.h>
+# include <errno.h>
 # include "../libft/include/libft.h"
 
 void	msg_error(int err);

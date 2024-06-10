@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:22:11 by paola             #+#    #+#             */
-/*   Updated: 2024/06/06 13:29:47 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/10 18:01:24 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ void	child_process(char **argv, char **envp, int *fd)
 	close(fd[1]);
 	close(filein);
 	ft_execute(argv[2], envp);
-
 }
 
 void	pipex(char **argv, char **envp)
@@ -75,7 +74,7 @@ void	pipex(char **argv, char **envp)
 	if (pid == 0)
 	{
 		close(fd[0]);
-	child_process(argv, envp, fd);
+		child_process(argv, envp, fd);
 	}
 	else
 	{

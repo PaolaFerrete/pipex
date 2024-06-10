@@ -6,13 +6,11 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 15:23:11 by paola             #+#    #+#             */
-/*   Updated: 2024/06/03 14:51:17 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/10 17:59:50 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
-#include <errno.h>
-
 
 int	main(int argc, char **argv, char **envp)
 {

@@ -6,13 +6,11 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:35:59 by paola             #+#    #+#             */
-/*   Updated: 2024/06/05 10:49:34 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/10 18:01:05 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
-#include "../libft/include/libft.h"
-
 
 char	*my_getenv(char *name, char **env)
 {
@@ -84,6 +82,3 @@ int	open_file(char *file, int in_or_out)
 	}
 	return (ret);
 }
-
-
-

@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 10:29:09 by pferrete          #+#    #+#             */
-/*   Updated: 2024/06/05 10:59:13 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/10 18:01:49 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstnew(void *content);
 int		ft_strcmp(char *s1, char *s2);
-
 
 #endif

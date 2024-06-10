@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/16 15:48:20 by paola             #+#    #+#             */
-/*   Updated: 2024/02/29 16:10:32 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/10 18:03:02 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	{
 		(void)del;
 		tmp = *lst;
-		//del(tmp->content);
+		del(tmp->content);
 		*lst = tmp->next;
 		free(tmp);
 	}
