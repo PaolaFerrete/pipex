@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 18:22:11 by paola             #+#    #+#             */
-/*   Updated: 2024/06/11 12:23:54 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/12 10:39:47 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,8 @@ void	child_process(char **argv, char **envp, int *fd)
 void	pipex(char **argv, char **envp)
 {
 	int		fd[2];
-	int		status;
 	pid_t	pid;
 
-	status = 0;
 	if (pipe(fd) == -1)
 		msg_error(-1);
 	pid = fork();
@@ -79,7 +77,7 @@ void	pipex(char **argv, char **envp)
 	else
 	{
 		close(fd[1]);
-		waitpid(-1, &status, WNOHANG);
+		waitpid(0, NULL, WNOHANG);
 		parent_process(argv, envp, fd);
 	}
 }
