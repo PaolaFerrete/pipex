@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:02:56 by paola             #+#    #+#             */
-/*   Updated: 2024/06/12 11:03:00 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/12 11:08:45 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_execute(char *argv, char **envp)
 	char	*path;
 
 	cmd = ft_split(argv, ' ');
-	path = get_path(argv, envp);
+	path = get_path(*cmd, envp);
 	if (!path)
 	{
 		free_matrix(cmd);
