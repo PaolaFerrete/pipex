@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 16:35:59 by paola             #+#    #+#             */
-/*   Updated: 2024/06/12 10:45:36 by paola            ###   ########.fr       */
+/*   Created: 2024/06/12 11:02:43 by paola             #+#    #+#             */
+/*   Updated: 2024/06/12 11:02:48 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,19 +44,25 @@ char	*get_path(char *cmd, char **env)
 	char	*exec;
 	char	**allpath;
 	char	*path_part;
+	char	**s_cmd;
 
 	i = -1;
 	allpath = ft_split(my_getenv("PATH", env), ':');
+	s_cmd = ft_split(cmd, ' ');
 	while (allpath[++i])
 	{
 		path_part = ft_strjoin(allpath[i], "/");
-		exec = ft_strjoin(path_part, cmd);
+		exec = ft_strjoin(path_part, s_cmd[0]);
 		free(path_part);
 		if (access(exec, F_OK | X_OK) == 0)
+		{
+			free_matrix(s_cmd);
 			return (exec);
+		}
 		free(exec);
 	}
 	free_matrix(allpath);
+	free_matrix(s_cmd);
 	return (cmd);
 }
 
