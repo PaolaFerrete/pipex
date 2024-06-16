@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:02:56 by paola             #+#    #+#             */
-/*   Updated: 2024/06/16 11:45:51 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/16 11:54:42 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	child_process(char **argv, char **envp, int *fd)
 int	check_command(char *argv)
 {
 	char	**get_command;
-	int	i;
+	int		i;
 
 	get_command = ft_split(argv, ' ');
-	i = ft_strncmp(get_command[0], "sleep", 6);
+	i = ft_strncmp(get_command[0], "sleep", ft_strlen("sleep"));
 	free_matrix(get_command);
 	if (i == 0)
 		return (0);
