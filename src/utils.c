@@ -6,13 +6,11 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:02:43 by paola             #+#    #+#             */
-/*   Updated: 2024/06/12 11:09:47 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/16 15:54:33 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/pipex.h"
-#include "../libft/include/libft.h"
-
 
 char	*my_getenv(char *name, char **env)
 {
@@ -60,24 +58,35 @@ char	*get_path(char *cmd, char **env)
 	return (cmd);
 }
 
+int	check_command(char *argv)
+{
+	char	**get_command;
+	int		i;
+
+	get_command = ft_split(argv, ' ');
+	i = ft_strcmp(get_command[0], "sleep");
+	free_matrix(get_command);
+	if (i == 0)
+		return (0);
+	else
+		return (1);
+}
+
 int	open_file(char *file, int in_or_out)
 {
-	int	ret;
+	int	arch;
 
 	if (in_or_out == 0)
 	{
-		ret = open(file, O_RDONLY, 0777);
-		if (ret == -1)
+		arch = open(file, O_RDONLY, 0777);
+		if (arch == -1)
 			msg_error(-1);
 	}
 	else if (in_or_out == 1)
 	{
-		ret = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
-		if (ret == -1)
+		arch = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (arch == -1)
 			msg_error(-1);
 	}
-	return (ret);
+	return (arch);
 }
-
-
-

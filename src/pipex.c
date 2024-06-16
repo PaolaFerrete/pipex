@@ -6,7 +6,7 @@
 /*   By: paola <paola@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/12 11:02:56 by paola             #+#    #+#             */
-/*   Updated: 2024/06/16 11:54:42 by paola            ###   ########.fr       */
+/*   Updated: 2024/06/16 15:54:48 by paola            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_execute(char *argv, char **envp)
 	if (execve(path, cmd, envp) == -1)
 	{
 		free_matrix(cmd);
-		exit(127);
+		msg_error(127);
 	}
 }
 
@@ -57,20 +57,6 @@ void	child_process(char **argv, char **envp, int *fd)
 	close(fd[1]);
 	close(filein);
 	ft_execute(argv[2], envp);
-}
-
-int	check_command(char *argv)
-{
-	char	**get_command;
-	int		i;
-
-	get_command = ft_split(argv, ' ');
-	i = ft_strncmp(get_command[0], "sleep", ft_strlen("sleep"));
-	free_matrix(get_command);
-	if (i == 0)
-		return (0);
-	else
-		return (1);
 }
 
 void	pipex(char **argv, char **envp)
